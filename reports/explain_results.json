@@ -1,0 +1,171 @@
+{
+  "global_seconds": 2.192707061767578,
+  "global": [
+    {
+      "feature": "ProductRelated",
+      "mean_abs_phi": 0.0976122010245717,
+      "mean_phi": -0.017938256964022074
+    },
+    {
+      "feature": "ExitRates",
+      "mean_abs_phi": 0.04034785421922154,
+      "mean_phi": -0.008669521519906116
+    },
+    {
+      "feature": "Administrative",
+      "mean_abs_phi": 0.014752209600593234,
+      "mean_phi": -0.0069657904992954656
+    },
+    {
+      "feature": "BounceRates",
+      "mean_abs_phi": 0.010671461421287078,
+      "mean_phi": 0.0008696700454782298
+    },
+    {
+      "feature": "Informational_Duration",
+      "mean_abs_phi": 0.008626032679345667,
+      "mean_phi": 0.0007877198699920175
+    },
+    {
+      "feature": "Administrative_Duration",
+      "mean_abs_phi": 0.007812163199397719,
+      "mean_phi": 0.0044503640485921
+    },
+    {
+      "feature": "Browser",
+      "mean_abs_phi": 0.0058094969785566705,
+      "mean_phi": -0.0013002662057327611
+    },
+    {
+      "feature": "VisitorType",
+      "mean_abs_phi": 0.0035915488698104177,
+      "mean_phi": -0.0019055884811358386
+    },
+    {
+      "feature": "ProductRelated_Duration",
+      "mean_abs_phi": 0.0033309031666137147,
+      "mean_phi": -0.0009672562229159807
+    },
+    {
+      "feature": "Informational",
+      "mean_abs_phi": 0.0004381519651418517,
+      "mean_phi": -2.6688486282666105e-05
+    }
+  ],
+  "rank_agreement_shapley_vs_permutation": 0.8909090909090909,
+  "local": {
+    "highest": {
+      "actual_converted": 1,
+      "probability": 0.9104940349666107,
+      "base": 0.19724091629905086,
+      "shapley": {
+        "ProductRelated": 0.5733930091048759,
+        "ExitRates": 0.09555216385934236,
+        "Administrative": 0.016645915137308138,
+        "BounceRates": 0.016472896554535803,
+        "Informational_Duration": 0.01399446557058191,
+        "Administrative_Duration": -0.009973053143755326
+      },
+      "lime": {
+        "ProductRelated": 0.5710432621852888,
+        "ExitRates": 0.11899841109444044,
+        "BounceRates": 0.030674592141436828,
+        "Administrative": 0.024367720964346088,
+        "Informational_Duration": 0.01719023196247499,
+        "Informational": 0.014138402364525916
+      },
+      "lime_r2": 0.8414306726132688,
+      "efficiency_gap": 2.220446049250313e-16,
+      "values": {
+        "Administrative": 4,
+        "Administrative_Duration": 138.3569,
+        "BounceRates": 0.0,
+        "Browser": 2,
+        "ExitRates": 0.0,
+        "Informational": 3,
+        "Informational_Duration": 33.3412,
+        "ProductRelated": 112,
+        "ProductRelated_Duration": 1832.6519,
+        "VisitorType": "Returning_Visitor"
+      }
+    },
+    "near_threshold": {
+      "actual_converted": 1,
+      "probability": 0.12496909396444479,
+      "base": 0.19724091629905086,
+      "shapley": {
+        "ProductRelated": -0.10157522633996477,
+        "Browser": 0.018302334070606132,
+        "Administrative": 0.01380308158613593,
+        "ExitRates": -0.012865290517799726,
+        "Informational_Duration": 0.011901764303581122,
+        "BounceRates": 0.006781939139379842
+      },
+      "lime": {
+        "ProductRelated": -0.09381752958500719,
+        "Administrative": 0.018714246004661744,
+        "BounceRates": 0.017555427014151834,
+        "Browser": 0.014654095699905605,
+        "Informational_Duration": 0.012481713001113863,
+        "Informational": 0.012461748591907419
+      },
+      "lime_r2": 0.18968737376738842,
+      "efficiency_gap": -1.3877787807814457e-17,
+      "values": {
+        "Administrative": 4,
+        "Administrative_Duration": 92.449,
+        "BounceRates": 0.009012,
+        "Browser": 10,
+        "ExitRates": 0.045682,
+        "Informational": 1,
+        "Informational_Duration": 29.6033,
+        "ProductRelated": 15,
+        "ProductRelated_Duration": 347.5878,
+        "VisitorType": "Returning_Visitor"
+      }
+    },
+    "lowest": {
+      "actual_converted": 0,
+      "probability": 0.0002695189807073454,
+      "base": 0.19724091629905086,
+      "shapley": {
+        "ProductRelated": -0.10909217465177341,
+        "ExitRates": -0.06299397631796069,
+        "BounceRates": -0.017545111037051038,
+        "ProductRelated_Duration": -0.007160916249300697,
+        "Administrative": -0.006076363050676025,
+        "Informational_Duration": 0.004684078912740837
+      },
+      "lime": {
+        "ProductRelated": -0.07288072763378199,
+        "ExitRates": -0.03719944828355254,
+        "Informational": 0.004857765316952249,
+        "Administrative_Duration": -0.0037617649991802584,
+        "VisitorType": -0.003371536355885055,
+        "ProductRelated_Duration": -0.0020662266485687378
+      },
+      "lime_r2": 0.3153967307224178,
+      "efficiency_gap": 0.0,
+      "values": {
+        "Administrative": 1,
+        "Administrative_Duration": 18.5596,
+        "BounceRates": 0.060827,
+        "Browser": 2,
+        "ExitRates": 0.131934,
+        "Informational": 1,
+        "Informational_Duration": 25.3849,
+        "ProductRelated": 1,
+        "ProductRelated_Duration": 80.0765,
+        "VisitorType": "Returning_Visitor"
+      }
+    }
+  },
+  "shapley_vs_lime": {
+    "mean_rank_corr": 0.6606060606060606,
+    "top1_agreement": 0.92,
+    "mean_lime_r2": 0.21772721681841486,
+    "n": 25
+  },
+  "latency_ms_with_explanation": 15.596675872802734,
+  "latency_ms_score_only": 6.789052486419678
+}
