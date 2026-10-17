@@ -1,0 +1,11 @@
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+.env
+mlruns/
+*.zip
+~$*
+.~lock.*
+*.tmp
+.DS_Store
+experiments/cache/

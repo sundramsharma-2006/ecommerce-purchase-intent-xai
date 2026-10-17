@@ -1,0 +1,20 @@
+# docker compose up --build      -> API on :8000 (docs at /docs), dashboard on :8501, MLflow UI on :5000
+# Not executed in the original build environment (no Docker); written to the Compose spec.
+services:
+  api:
+    build: { context: ., dockerfile: docker/Dockerfile }
+    command: uvicorn src.api.app:app --host 0.0.0.0 --port 8000
+    ports: ["8000:8000"]
+    env_file: [.env.example]
+    volumes: ["./models:/app/models:ro"]
+  dashboard:
+    build: { context: ., dockerfile: docker/Dockerfile }
+    command: streamlit run dashboard/app.py --server.port 8501 --server.address 0.0.0.0
+    ports: ["8501:8501"]
+    depends_on: [api]
+    volumes: ["./models:/app/models:ro", "./reports:/app/reports:ro"]
+  mlflow:
+    image: ghcr.io/mlflow/mlflow:latest
+    command: mlflow server --host 0.0.0.0 --port 5000 --backend-store-uri file:/mlruns
+    ports: ["5000:5000"]
+    volumes: ["./mlruns:/mlruns"]
