@@ -1,0 +1,40 @@
+# Single source of truth for paths and tunable values (PRD 4.1).
+paths:
+  raw_data: dataset/ecommerce_sessions.csv
+  data_dictionary: dataset/data_dictionary.csv
+  model_dir: models
+  reports_dir: reports
+  figures_dir: reports/figures
+  experiments_dir: experiments
+seed: 42
+split:
+  test_size: 0.2            # stratified hold-out, touched once at the very end
+  cv_folds: 5               # stratified K-fold on the training part only
+target: Converted
+columns:
+  numeric_counts: [Administrative, Informational, ProductRelated]
+  numeric_durations: [Administrative_Duration, Informational_Duration, ProductRelated_Duration]
+  numeric_rates: [BounceRates, ExitRates, PageValues, SpecialDay]
+  categorical: [Month, VisitorType, Weekend, OperatingSystems, Browser, Region, TrafficType]   # int-coded IDs are categories, not quantities
+  int_coded_categorical: [OperatingSystems, Browser, Region, TrafficType]
+  months: [Jan, Feb, Mar, Apr, May, June, Jul, Aug, Sep, Oct, Nov, Dec]
+  visitor_types: [Returning_Visitor, New_Visitor, Other]
+# PageValues: see README / model card. In this data PageValues == 0 never converts, and in a live session
+# the value is only known late (pages near checkout). The deployed "early-session" model therefore excludes it.
+features:
+  drop_page_values: true
+  engineered: [total_pages, total_duration, avg_time_per_page, product_page_share, time_per_product_page]
+business:
+  # ASSUMPTIONS, not measured. Replace with the retailer's real figures; the dashboard shows a sensitivity table.
+  value_per_conversion: 40.0      # net margin of a captured purchase
+  cost_per_intervention: 4.0      # discount / banner / remarketing cost per flagged session
+  threshold_grid_points: 199
+models:
+  imbalance_strategies: [class_weight, smote, none]
+explain:
+  background_size: 100
+  n_permutations: 40
+  global_sample: 250
+serving:
+  high_confidence_margin: 0.15    # |p - threshold| above this -> "high" confidence
+  top_k_contributors: 5
